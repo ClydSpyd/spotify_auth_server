@@ -8,6 +8,10 @@ let redirect_uri =
   process.env.REDIRECT_URI || 
   'http://localhost:8888/callback'
 
+app.get('/', function(req, res) {
+  res.write("<div style='width:100vw; height: 100vh; display: flex; align-items: center; justify-content:center'><p>Redirecting to auth flow...</p></div>");
+})
+
 app.get('/login', function(req, res) {
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
